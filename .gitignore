@@ -1,0 +1,12 @@
+/*
+
+#Whitelist
+!.gitignore
+!.README.md
+!.wallpaper.jpg
+
+!.config/
+.config/*
+!.config/i3
+!.config/polybar
+!.config/termite
