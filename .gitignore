@@ -3,7 +3,7 @@
 #Whitelist
 !.gitignore
 !.README.md
-!.wallpaper.jpg
+!wallpaper.jpg
 
 !.config/
 .config/*
