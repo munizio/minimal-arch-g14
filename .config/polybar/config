@@ -181,7 +181,7 @@ type = custom/script
 interval = 0.5
 label =  %output%
 label-padding=2
-exec = date +%l:%M\ %p
+exec = date +%k:%M
 
 [module/memory]
 type = internal/memory
