@@ -16,7 +16,7 @@ set $down j
 set $up k
 set $right l
 
-set $menu rofi -show drun
+set $menu rofi -show drun -theme slate
 set $term termite
 
 # Hardware Statup Commands
