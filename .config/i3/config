@@ -16,13 +16,13 @@ set $down j
 set $up k
 set $right l
 
-set $menu rofi -lines 12 -padding 18 -width 60 -location 0 -show drun
+set $menu rofi -show drun
 set $term termite
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id xmodmap ~/.config/.Xmodmap
 exec_always --no-startup-id feh --bg-fill ~/wallpaper.jpg
-#exec_always --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=0"
+exec_always --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=0"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

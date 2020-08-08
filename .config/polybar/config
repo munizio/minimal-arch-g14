@@ -49,7 +49,7 @@ font-0 = "Source Code Pro:size=8;1"
 
 modules-left = workspaces
 modules-center = 
-modules-right = cputemp pulseaudio wlan  battery currenttime
+modules-right = fanspeed cputemp pulseaudio wlan  battery currenttime
 
 tray-scale = 1.0
 tray-position = right
@@ -199,10 +199,16 @@ format-padding = 4
 
 [module/cputemp]
 type = custom/script
-interval = 5
+interval = 10
 label =  %output%°C
 exec = TEMP=$(cat /sys/devices/virtual/thermal/thermal_zone0/temp); expr $TEMP / 1000
 format-padding = 4
+
+[module/fanspeed]
+type = custom/script
+interval = 10
+lable = %output%
+exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 2 ]; then echo "Silent"; else echo $TEMP; fi
 
 [module/spacer]
 type = custom/script
