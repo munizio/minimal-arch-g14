@@ -6,6 +6,8 @@
 
 !.bash_aliases
 !.bashrc
+
+!.tmux.conf
 !.vimrc
 
 !wallpaper.jpg
