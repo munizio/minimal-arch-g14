@@ -49,7 +49,7 @@ font-0 = "Source Code Pro:size=8;1"
 
 modules-left = workspaces
 modules-center = 
-modules-right = fanspeed cputemp pulseaudio wlan  battery currenttime
+modules-right = policy fanspeed cputemp pulseaudio wlan  battery currenttime
 
 tray-scale = 1.0
 tray-position = right
@@ -207,8 +207,15 @@ format-padding = 4
 [module/fanspeed]
 type = custom/script
 interval = 10
+label =  %output% RPM
+exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon6/fan1_input
+
+[module/policy]
+type = custom/script
+interval = 10
 lable = %output%
 exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 2 ]; then echo "Silent"; else echo $TEMP; fi
+format-padding = 4
 
 [module/spacer]
 type = custom/script
