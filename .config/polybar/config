@@ -214,7 +214,7 @@ exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon6/fan1_input
 type = custom/script
 interval = 10
 lable = %output%
-exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 2 ]; then echo "Silent"; else echo $TEMP; fi
+exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 0 ]; then echo "Balanced"; elif [ $TEMP -eq 1 ]; then echo "NOS"; elif [ $TEMP -eq 2 ]; then echo "Quiet";fi
 format-padding = 4
 
 [module/spacer]
