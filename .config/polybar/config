@@ -42,8 +42,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "Source Code Pro:size=8;1"
-;font-1 = "Hack Nerd Font:size=8;3"
+font-0 = "Source Code Pro:style=Regular:size=8;2"
+font-1 = "Material Design Icons:style=Regular:size=10;2"
 ;font-2 = "Source Code Pro Nerd Font:style=Regular:pixelsize=10;3"
 ;font-3 = "NotoSans Nerd Font"
 
@@ -99,34 +99,26 @@ label-visible-padding = 4
 label-visible-foreground = ${colors.bg}
 label-visible-background = ${colors.fg}
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;﬏
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-
 [module/wlan]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
-format-prefix = ""
 format-prefix-foreground = ${colors.fg}
 format-underline = ${colors.grey}
 
-format-connected = "<label-connected>⠀"
-format-connected-underline = ${colors.grey}
-label-connected = %essid% -> %local_ip%
-format-connected-prefix = "⠀⠀"
-format-connected-prefix-foreground = ${colors.fg}
-label-connected-padding = 4
+ramp-signal-0 = 󰤫
+ramp-signal-1 = 󰤯
+ramp-signal-2 = 󰤟
+ramp-signal-3 = 󰤢
+ramp-signal-4 = 󰤥
+ramp-signal-5 = 󰤨
 
-format-disconnected =
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = disconnected
-;format-disconnected-prefix = ""
-;label-disconnected-foreground = ${colors.sel}
+format-connected = "[ <ramp-signal> <label-connected> ]"
+format-connected-underline = ${colors.grey}
+label-connected = %essid%
+
+format-disconnected = "[ 󰤮  <label-disconnected> ]"
+label-disconnected = "Disconnected"
 
 [module/battery]
 type = internal/battery
@@ -135,13 +127,13 @@ adapter = AC0
 full-at = 98
 poll-interval = 5
 
-format-charging = "⠀<animation-charging>⠀<label-charging>⠀"
+format-charging = "[ <animation-charging> <label-charging> ]"
 format-charging-underline =  ${colors.grey}
 
-format-discharging = "⠀<ramp-capacity>⠀<label-discharging>⠀"
+format-discharging = "[ <ramp-capacity> <label-discharging> ]"
 format-discharging-underline = ${colors.grey}
 
-format-full-prefix = " "
+format-full-prefix = "󰂏 "
 format-full-prefix-foreground = ${colors.fg}
 format-full-underline = ${colors.green}
 
@@ -149,82 +141,59 @@ label-full = %percentage%% %consumption%W
 label-charging = %percentage%% +%consumption%W
 label-discharging = %percentage%% -%consumption%W
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 󰁺
+ramp-capacity-1 = 󰁼
+ramp-capacity-2 = 󰁾
+ramp-capacity-3 = 󰂀
+ramp-capacity-4 = 󰂂
 ramp-capacity-foreground = ${colors.fg}
 
-animation-charging-0 =  
-animation-charging-1 =  
-animation-charging-2 =  
-animation-charging-3 =  
-animation-charging-4 =  
+animation-charging-0 = 󰂆
+animation-charging-1 = 󰂈
+animation-charging-2 = 󰂉
+animation-charging-3 = 󰂋
+animation-charging-4 = 󰂅
 animation-charging-foreground = ${colors.fg}
 animation-charging-framerate = 750
-
-[module/docker]
-type = custom/script
-interval = 5
-exec = (docker ps | tail -n +2 | grep "" > /dev/null) && (docker ps -q | wc -l) || echo ''
-format-padding = 4
-label =  %output%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 use-ui-max = false
 interval = 5
-label-volume = Vol: %percentage%%
-label-muted =  MUTE
+label-volume = "[ 󱄠 %percentage%% ]"
+label-volume-font = 2
+label-muted =  "[ 󰝟 ]"
 
 [module/currenttime]
 type = custom/script
 interval = 0.5
-label =  %output%
+label =  %output%
 label-padding=2
-exec = date +%k:%M
-
-[module/memory]
-type = internal/memory
-interval = 3
-format = <label>
-label =   %gb_used%
-format-padding = 4
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format = <label>
-label =  %percentage%%
-format-padding = 4
-
-[module/cputemp]
-type = custom/script
-interval = 10
-label =  %output%°C ]
-exec = TEMP=$(cat /sys/devices/virtual/thermal/thermal_zone0/temp); expr $TEMP / 1000
-format-padding = 4
+exec = date +%k:%M:%S
 
 [module/GPU]
 type = custom/script
 interval = 10
-lable = %output%
+label = "[ 󰔂 %output% ]"
 exec = TEMP=$(lspci | grep VGA | wc -l); if [ $TEMP -eq 1 ]; then echo "iGPU"; elif [ $TEMP -eq 2 ]; then echo "dGPU/iGPU"; fi
-format-padding = 1
-
-[module/fanspeed]
-type = custom/script
-interval = 10
-label =  %output% RPM
-exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon6/fan1_input
 
 [module/policy]
 type = custom/script
 interval = 10
-label = [ %output%
+label = "[ %output% "
 exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 0 ]; then echo "Balanced"; elif [ $TEMP -eq 1 ]; then echo "NOS"; elif [ $TEMP -eq 2 ]; then echo "Quiet";fi
-format-padding = 4
+
+[module/fanspeed]
+type = custom/script
+interval = 10
+label =  "󰡵 %output% RPM "
+exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon6/fan1_input
+
+[module/cputemp]
+type = custom/script
+interval = 10
+label =  "󰔏 %output%°C ]"
+exec = TEMP=$(cat /sys/devices/virtual/thermal/thermal_zone0/temp); expr $TEMP / 1000
 
 [module/spacer]
 type = custom/script
@@ -244,5 +213,3 @@ compositing-border = over
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-; vim:ft=dosinie
