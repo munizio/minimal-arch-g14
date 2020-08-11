@@ -4,6 +4,7 @@ configuration {
 	width: 60;
 	lines: 12;
 /*	columns: 1;*/
+	font: "Source Code Pro 12";
 /*	font: "mono 12";*/
 /*	bw: 1;*/
 	location: 0;
