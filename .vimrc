@@ -1,5 +1,6 @@
 set nocompatible
 set number
+set nowrap
 
 set autoindent
 set cindent

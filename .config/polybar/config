@@ -175,6 +175,7 @@ label =  %output%
 type = internal/pulseaudio
 use-ui-max = false
 interval = 5
+label-muted =  MUTE
 
 [module/currenttime]
 type = custom/script
