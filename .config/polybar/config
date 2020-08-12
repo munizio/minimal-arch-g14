@@ -218,7 +218,9 @@ exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if
 [module/fanspeed]
 type = custom/script
 interval = 10
-label =  "󰫕 %output% RPM "
+label =  "󰈐 %output% RPM "
+;label =  "󰫕 %output% RPM "
+;label =  "󱂠 %output% RPM "
 exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon6/fan1_input
 
 [module/cputemp]
@@ -241,15 +243,24 @@ expand-right = true
 
 format-spacing = 0
 
-label-open = ""
+label-padding = 1
 
-label-close = ""
+;label-open = "󰤆"
+label-open = "󰣇"
+label-open-background = ${colors.bg}
+label-open-foreground = ${colors.fg}
+
+label-close = "󰍟"
+label-close-background = ${colors.bg}
+label-close-foreground = ${colors.fg}
 
 menu-0-0 = Reboot
 menu-0-0-exec = sudo reboot
+menu-0-0-padding = 1
 
 menu-0-1 = Power Off
 menu-0-1-exec = sudo poweroff
+menu-0-1-padding = 1
 
 [settings]
 screenchange-reload = true
