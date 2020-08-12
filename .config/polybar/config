@@ -20,7 +20,7 @@ urgent_dark = #ffcc6666
 [bar/top]
 dpi = 100
 width = 100%
-height = 24
+height = 26
 offset-x = 0
 offset-y = 0
 radius = 0.0
@@ -43,7 +43,7 @@ module-margin-left = 0
 module-margin-right = 0
 
 font-0 = "Fira Code:style=SemiBold:size=8;2"
-font-1 = "Material Design Icons:style=Regular:size=10;2"
+font-1 = "Material Design Icons:style=Regular:size=12;3"
 ;font-2 = "Source Code Pro Nerd Font:style=Regular:pixelsize=10;3"
 ;font-3 = "NotoSans Nerd Font"
 
@@ -69,13 +69,19 @@ index-sort=false
 wrapping-scroll=false
 
 ws-icon-0 = 1; 󰆍 
-;ws-icon-0 = 1; 󰞷 
 ws-icon-1 = 2; 󰊯 
-ws-icon-2 = 3; 󱅾 
-ws-icon-3 = 4; 󰓇 
-ws-icon-4 = 5; 5 
-;ws-icon-5 = 6; 󰨞 
-;ws-icon-6 = 7; 󰕃 
+ws-icon-2 = 3; 󰓇 
+ws-icon-3 = 4; 󰧑
+ws-icon-4 = 5; 󱅾 
+
+;VSCODE 󰨞 
+;TWITCH 󰕃 
+;SHELL 󰞷 
+;STEAM 󰓓
+;SSH 󰣀
+;OM 󰥳
+;ARCH 󰣇
+;POWER 󰤆
 
 label-mode-padding = 4
 label-mode-foreground = ${colors.fg}
@@ -195,7 +201,7 @@ bar-volume-empty-font = 3
 type = custom/script
 interval = 0.5
 label =  %output%
-label-padding=2
+label-padding=1
 exec = date +%k:%M:%S
 
 [module/GPU]
@@ -238,20 +244,16 @@ expand-right = true
 
 format-spacing = 0
 
-label-padding = 1
-
-;label-open = "󰤆"
-label-open = "󰣇"
+label-open = "󰥳 "
 label-open-background = ${colors.bg}
 label-open-foreground = ${colors.fg}
 
-label-close = "󰍟"
+label-close = "󰍟 "
 label-close-background = ${colors.bg}
 label-close-foreground = ${colors.fg}
 
 menu-0-0 = Reboot
 menu-0-0-exec = sudo reboot
-menu-0-0-padding = 1
 
 menu-0-1 = Power Off
 menu-0-1-exec = sudo poweroff
