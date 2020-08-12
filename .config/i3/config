@@ -21,7 +21,6 @@ set $term kitty
 
 # Hardware Statup Commands
 exec_always --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=0"
-exec_always --no-startup-id rog-core -f silent
 
 # UI/UX Commands
 exec_always --no-startup-id xmodmap ~/.config/.Xmodmap
