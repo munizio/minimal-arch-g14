@@ -17,5 +17,7 @@
 !.config/.Xmodmap
 !.config/i3
 !.config/polybar
-!.config/termite
 !.config/rofi
+!.config/kitty
+!.config/neofetch
+!.config/ranger
