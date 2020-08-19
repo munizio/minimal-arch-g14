@@ -28,6 +28,8 @@ exec_always --no-startup-id feh --bg-fill ~/wallpaper.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id compton
 exec_always --no-startup-id light-locker
+exec_always --no-startup-id pacmd set-source-volume 1 32000
+exec_always --no-startup-id pacmd set-source-mute 1 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -61,6 +63,10 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use light to adjust monitor brightness.
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+
+# Use light to adjust keyboard brightness.
+bindsym XF86KbdBrightnessDown exec --no-startup-id light -s sysfs/leds/asus::kbd_backlight -U 50
+bindsym XF86KbdBrightnessUp exec --no-startup-id light -s sysfs/leds/asus::kbd_backlight -A 50
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
