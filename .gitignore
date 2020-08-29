@@ -11,6 +11,8 @@
 
 !wallpaper.jpg
 
+!.bin/
+
 !.config/
 .config/*
 !.config/.Xmodmap
