@@ -17,7 +17,8 @@ set $up k
 set $right l
 
 set $menu rofi -show drun -theme slate
-set $term kitty
+#set $term kitty
+set $term $HOME/.config/i3/i3_shell.sh
 
 # Hardware Statup Commands
 exec_always --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=0"
