@@ -13,3 +13,4 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 MAKEFLAGS="-j$(nproc)"
+export PROMPT_COMMAND="pwd > /tmp/whereami"
