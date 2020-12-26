@@ -70,6 +70,9 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 bindsym XF86KbdBrightnessDown exec --no-startup-id light -s sysfs/leds/asus::kbd_backlight -U 50
 bindsym XF86KbdBrightnessUp exec --no-startup-id light -s sysfs/leds/asus::kbd_backlight -A 50
 
+# Fan Mode Fix
+bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
