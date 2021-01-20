@@ -25,8 +25,8 @@ set $term $HOME/.config/i3/i3_shell.sh
 
 # UI/UX Commands
 exec_always --no-startup-id xmodmap ~/.config/.Xmodmap
-exec_always --no-startup-id feh --bg-fill ~/wallpaper.jpg
-#exec_always --no-startup-id feh --bg-fill ~/Downloads/wallpapers/ul7tbo5attw51.jpg
+#exec_always --no-startup-id feh --bg-fill ~/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill ~/Downloads/wallpapers/71bf6552gy1ggbnu4k3h6j21gr0u0npe.jpg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config ~/.config/picom.conf
 exec_always --no-startup-id light-locker

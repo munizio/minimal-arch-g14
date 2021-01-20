@@ -88,6 +88,8 @@ ws-icon-5 = 5; 󰓇
 ;OM 󰥳
 ;ARCH 󰣇
 ;POWER 󰤆
+;BULB 󰷕 
+;SPECTRUM 󱑽
 
 label-mode-padding = 4
 label-mode-foreground = ${colors.fg}

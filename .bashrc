@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+alias tree='tree --dirsfirst -C -L 2'
 PS1='[\u@\h \W]\$ '
 
 if [ -f ~/.bash_aliases ]; then

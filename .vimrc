@@ -20,14 +20,19 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug '/usr/bin/fzf'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
+Plug 'pangloss/vim-javascript'
 
-let g:polyglot_disabled = ['typescript']
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-python'
+  \ ]
+
+" let g:polyglot_disabled = ['typescript']
 
 call plug#end()
 
