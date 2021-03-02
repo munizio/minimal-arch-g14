@@ -70,12 +70,12 @@ format = <label-state> <label-mode>
 index-sort=false
 wrapping-scroll=false
 
-ws-icon-0 = 0; 󰥳 
-ws-icon-1 = 1; 󰆍 
-ws-icon-2 = 2; 󰊯 
-ws-icon-3 = 3; 󰧑 
-ws-icon-4 = 4; 󱅾
-ws-icon-5 = 5; 󰓇 
+ws-icon-0 = 0;󰥳 
+ws-icon-1 = 1;󰞷 
+ws-icon-2 = 2;󰊯 
+ws-icon-3 = 3;󰧑 
+ws-icon-4 = 4;󱅾
+ws-icon-5 = 5;󰓇 
 
 ;BRAIN 󰧑
 ;SOUP 󱅾
@@ -118,6 +118,7 @@ type = internal/network
 interface = wlp2s0
 interval = 3.0
 label-connected-foreground = ${colors.fc}
+label-disconnected-foreground = ${colors.fc}
 ramp-signal-foreground = ${colors.fc}
 
 format-connected = "<ramp-signal>"
@@ -157,9 +158,9 @@ label-discharging = %percentage%%
 label-discharging-foreground = ${colors.fc}
 
 ramp-capacity-foreground = ${colors.fc}
-ramp-capacity-foreground-0 = ${colors.red}
+ramp-capacity-0-foreground = ${colors.red}
 ramp-capacity-0 = 󰁺
-ramp-capacity-foreground-1 = ${colors.yellow}
+ramp-capacity-1-foreground = ${colors.yellow}
 ramp-capacity-1 = 󰁻
 ramp-capacity-2 = 󰁼
 ramp-capacity-3 = 󰁽
