@@ -8,7 +8,11 @@ set cindent
 syntax on
 
 set backspace=indent,eol,start
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2 expandtab softtabstop=2
+
+let g:python_recommended_style = 0
+filetype plugin indent on
+autocmd FileType python setlocal shiftwidth=2 softtabstop=2 expandtab
 
 " Vim-Plug install and Plugins
 

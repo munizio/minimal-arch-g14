@@ -1,6 +1,7 @@
 [colors]
-bg = #ff050a10
-fg = #ffcccccc
+bg = #ff222222
+fg = #ff3b3b3b
+fc = #ffcccccc
 sel = #ff2c495b
 cur = #ff474747
 grey = #ff808080
@@ -48,8 +49,9 @@ font-1 = "Material Design Icons:style=Regular:size=12;3"
 ;font-3 = "NotoSans Nerd Font"
 
 modules-left = workspaces
-modules-center = 
-modules-right = mic volume policy fanspeed cputemp GPU wlan battery currenttime powermenu
+modules-center = currenttime 
+#modules-right = volume policy fanspeed cputemp GPU wlan battery currenttime powermenu
+modules-right = volume wlan battery powermenu
 
 tray-scale = 1.0
 tray-position = right
@@ -91,44 +93,36 @@ ws-icon-5 = 5; 󰓇
 ;BULB 󰷕 
 ;SPECTRUM 󱑽
 
-label-mode-padding = 4
-label-mode-foreground = ${colors.fg}
-label-mode-background = ${colors.bg}
-
 label-focused = "%icon%"
+label-focused-padding = 2
 label-focused-background = ${colors.fg}
-label-focused-foreground = ${colors.bg}
-
-label-focused-padding = 4
+label-focused-foreground = ${colors.fc}
 
 label-unfocused = "%icon%"
-label-unfocused-padding = 4
+label-unfocused-padding = 2
 label-unfocused-background = ${colors.bg}
-label-unfocused-foreground = ${colors.fg}
+label-unfocused-foreground = ${colors.fc}
 
 label-urgent = "%icon%"
+label-urgent-padding = 2
 label-urgent-background = ${colors.sel}
-label-urgent-foreground = ${colors.fg}
-label-urgent-padding = 4
+label-urgent-foreground = ${colors.fc}
 
 label-visible = "%icon%"
-label-visible-padding = 4
-label-visible-foreground = ${colors.fg}
+label-visible-padding = 2
+label-visible-foreground = ${colors.fc}
 label-visible-background = ${colors.bg}
 
 [module/wlan]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
-format-prefix-foreground = ${colors.fg}
-format-underline = ${colors.grey}
+label-connected-foreground = ${colors.fc}
+ramp-signal-foreground = ${colors.fc}
 
-format-connected = "[ <ramp-signal> <label-connected> ]"
-format-connected-underline = ${colors.grey}
-label-connected = %essid%
+format-connected = "<ramp-signal>"
 
-format-disconnected = "[ 󰤮  <label-disconnected> ]"
-label-disconnected = "Disconnected"
+format-disconnected = "󰤮 "
 
 ramp-signal-0 = 󰤫
 ramp-signal-1 = 󰤯
@@ -144,53 +138,61 @@ adapter = AC0
 full-at = 98
 poll-interval = 5
 
-format-charging = "[ <animation-charging> <label-charging> ]"
-format-charging-underline =  ${colors.grey}
-
-format-discharging = "[ <ramp-capacity> <label-discharging> ]"
-format-discharging-underline = ${colors.grey}
+format-charging = "<animation-charging>"
+format-discharging = "<ramp-capacity>"
 
 format-full-prefix = "󰂏 "
 format-full-prefix-foreground = ${colors.fg}
 format-full-underline = ${colors.green}
 
-label-full = %percentage%% %consumption%W
-label-charging = %percentage%% +%consumption%W
-label-discharging = %percentage%% -%consumption%W
+label-full = %percentage%%
+label-full-foreground = ${colors.fc}
+label-charging = %percentage%%
+label-charging-foreground = ${colors.fc}
+label-discharging = %percentage%%
+label-discharging-foreground = ${colors.fc}
 
+ramp-capacity-foreground = ${colors.fc}
+ramp-capacity-foreground-0 = ${colors.red}
 ramp-capacity-0 = 󰁺
-ramp-capacity-1 = 󰁼
-ramp-capacity-2 = 󰁾
-ramp-capacity-3 = 󰂀
-ramp-capacity-4 = 󰂂
-ramp-capacity-foreground = ${colors.fg}
+ramp-capacity-foreground-1 = ${colors.yellow}
+ramp-capacity-1 = 󰁻
+ramp-capacity-2 = 󰁼
+ramp-capacity-3 = 󰁽
+ramp-capacity-4 = 󰁾
+ramp-capacity-5 = 󰁿
+ramp-capacity-6 = 󰂀
+ramp-capacity-7 = 󰂁
+ramp-capacity-8 = 󰂂
+ramp-capacity-9 = 󰁹
 
+animation-charging-foreground = ${colors.fc}
 animation-charging-0 = 󰂆
-animation-charging-1 = 󰂈
-animation-charging-2 = 󰂉
-animation-charging-3 = 󰂋
-animation-charging-4 = 󰂅
-animation-charging-foreground = ${colors.fg}
+animation-charging-1 = 󰂇
+animation-charging-2 = 󰂈
+animation-charging-3 = 󰂉
+animation-charging-4 = 󰂊
+animation-charging-5 = 󰂋
+animation-charging-6 = 󰂅
 animation-charging-framerate = 750
-
-
-[module/pulseaudio]
-type = internal/pulseaudio
-use-ui-max = false
-interval = 5
-label-volume = "[ 󱄠 %percentage%% ]"
-label-volume-font = 2
-label-muted =  "[ 󰝟 ]"
 
 [module/volume]
 type = internal/volume
 
-format-volume = [ <label-volume><bar-volume> ]
-format-muted = [ <label-muted> ]
+label-volume-foreground = ${colors.fc}
+label-muted-foreground = ${colors.fc}
+#format-volume = <label-volume><bar-volume>
+format-volume = <ramp-volume>
+format-muted = <label-muted>
 
-;label-headphes = "󰋋"
-label-volume = "󱄠"
-label-muted = "󰝟"
+ramp-volume-foreground = ${colors.fc}
+ramp-volume-0 = 󰕿
+ramp-volume-1 = 󰖀
+ramp-volume-2 = 󰕾
+
+#label-headphes = "󰋋"
+#label-muted = "󰝟"
+label-muted = "󰖁"
 
 bar-volume-width = 13
 bar-volume-foreground-0 = ${colors.green}
@@ -216,9 +218,10 @@ exec = TEMP=$(pacmd list-sources | grep -e 'index:' -e 'muted:' | tail -1); if [
 [module/currenttime]
 type = custom/script
 interval = 0.5
+label-foreground = ${colors.fc}
 label =  %output%
 label-padding=1
-exec = date +%k:%M:%S
+exec = date +%a,\ %b\ %d\ %k:%M:%S
 
 [module/GPU]
 type = custom/script
@@ -262,15 +265,17 @@ format-spacing = 0
 
 label-open = "󰤆 "
 label-open-background = ${colors.bg}
-label-open-foreground = ${colors.fg}
+label-open-foreground = ${colors.fc}
 
 label-close = "󰍟 "
 label-close-background = ${colors.bg}
-label-close-foreground = ${colors.fg}
+label-close-foreground = ${colors.fc}
 
+menu-0-0-foreground = ${colors.fc}
 menu-0-0 = Reboot
 menu-0-0-exec = reboot
 
+menu-0-1-foreground = ${colors.fc}
 menu-0-1 = Power Off
 menu-0-1-exec = poweroff
 menu-0-1-padding = 1
