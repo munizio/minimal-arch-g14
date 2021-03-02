@@ -121,8 +121,10 @@ label-connected-foreground = ${colors.fc}
 ramp-signal-foreground = ${colors.fc}
 
 format-connected = "<ramp-signal>"
+format-connected-padding = 1
 
 format-disconnected = "󰤮 "
+format-disconnected-padding = 1
 
 ramp-signal-0 = 󰤫
 ramp-signal-1 = 󰤯
@@ -139,7 +141,9 @@ full-at = 98
 poll-interval = 5
 
 format-charging = "<animation-charging>"
+format-charging-padding = 1
 format-discharging = "<ramp-capacity>"
+format-discharging-padding = 1
 
 format-full-prefix = "󰂏 "
 format-full-prefix-foreground = ${colors.fg}
@@ -184,6 +188,8 @@ label-muted-foreground = ${colors.fc}
 #format-volume = <label-volume><bar-volume>
 format-volume = <ramp-volume>
 format-muted = <label-muted>
+format-volume-padding = 1
+format-mute-padding = 1
 
 ramp-volume-foreground = ${colors.fc}
 ramp-volume-0 = 󰕿
