@@ -1,6 +1,6 @@
 * {
-  background-color: #050a10;
-  border-color: #2c495b;
+  background-color: #222222;
+  border-color: #3b3b3b;
   text-color: #cccccc;
   spacing: 0;
   width: 512px;
