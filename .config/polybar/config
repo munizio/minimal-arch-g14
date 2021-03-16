@@ -51,7 +51,7 @@ font-1 = "Material Design Icons:style=Regular:size=12;3"
 modules-left = workspaces
 modules-center = currenttime 
 #modules-right = volume policy fanspeed cputemp GPU wlan battery currenttime powermenu
-modules-right = volume wlan battery powermenu
+modules-right = policy volume wlan battery powermenu
 
 tray-scale = 1.0
 tray-position = right
@@ -79,6 +79,7 @@ ws-icon-5 = 5;󰓇
 ;RICE 󰟪
 ;CHAT 󰘑
 ;FIRE 󰈸
+;LEAF 󰌪
 ;#! 󱆃
 ;SPOTIFY 󰓇
 ;CHROME 󰊯
@@ -90,6 +91,8 @@ ws-icon-5 = 5;󰓇
 ;STEAM 󰓓
 ;SSH 󰣀
 ;OM 󰥳
+;BALANCE 󰾅
+;WIZARD 󱑷
 ;ARCH 󰣇
 ;POWER 󰤆
 ;BULB 󰷕 
@@ -239,8 +242,10 @@ exec = TEMP=$(lspci | grep VGA | wc -l); if [ $TEMP -eq 1 ]; then echo "iGPU"; e
 [module/policy]
 type = custom/script
 interval = 10
-label = "[ 󰡵 %output% "
-exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 0 ]; then echo "Balanced"; elif [ $TEMP -eq 1 ]; then echo "NOS"; elif [ $TEMP -eq 2 ]; then echo "Quiet";fi
+label = "%output%"
+label-foreground = ${colors.fc}
+label-padding=1
+exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 0 ]; then echo "󱑷"; elif [ $TEMP -eq 1 ]; then echo "󰈸"; elif [ $TEMP -eq 2 ]; then echo "󰌪";fi
 
 [module/fanspeed]
 type = custom/script
