@@ -182,8 +182,9 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 
 # Workspace Assignments
 assign [class="^kitty$"] → $ws1
-assign [class="^Chromium$"] → $ws2
 assign [class="^Firefox$"] → $ws2
+assign [class="^Chromium$"] → $ws3
+assign [class="^zoom$"] → $ws4
 # Weird because of Spotify Bug
 for_window [class="Spotify"] move to workspace $ws5
 
