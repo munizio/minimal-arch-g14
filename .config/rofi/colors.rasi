@@ -1,0 +1,13 @@
+* {
+	  red:                        #cf3358;
+    blue:                       #6699cc;
+	  lightfg:                    #cccccc;
+    lightbg:                    #222222;
+    foreground:                 #3b3b3b;
+    background:                 #222222;
+    background-color:           #222222;
+    black:                      #10141c;
+}
+
+
+
