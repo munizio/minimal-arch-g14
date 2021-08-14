@@ -236,7 +236,8 @@ exec = date +%a,\ %b\ %d\ %k:%M:%S
 [module/GPU]
 type = custom/script
 interval = 10
-label = "[ 󰔂 %output% ]"
+label-foreground = ${colors.fc}
+label = "%output%"
 exec = TEMP=$(lspci | grep VGA | wc -l); if [ $TEMP -eq 1 ]; then echo "iGPU"; elif [ $TEMP -eq 2 ]; then echo "dGPU/iGPU"; fi
 
 [module/policy]
