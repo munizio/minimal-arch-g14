@@ -19,9 +19,9 @@ urgent_light = #fff0c674
 urgent_dark = #ffcc6666
 
 [bar/top]
-dpi = 100
+dpi = 120
 width = 100%
-height = 30
+height = 36
 offset-x = 0
 offset-y = 0
 radius = 0.0
@@ -51,7 +51,7 @@ font-1 = "Material Design Icons:style=Regular:size=12;3"
 modules-left = workspaces
 modules-center = currenttime 
 #modules-right = volume policy fanspeed cputemp GPU wlan battery currenttime powermenu
-modules-right = policy volume wlan battery powermenu
+modules-right = volume cputemp wlan battery powermenu
 
 tray-scale = 1.0
 tray-position = right
@@ -120,7 +120,7 @@ label-visible-background = ${colors.bg}
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlp1s0
 interval = 3.0
 label-connected-foreground = ${colors.fc}
 label-disconnected-foreground = ${colors.fc}
@@ -148,10 +148,9 @@ poll-interval = 5
 
 format-full = "<label-full>"
 format-full-padding = 1
-format-charging = "<animation-charging>"
+format-charging = "<animation-charging> <label-charging>"
 format-charging-padding = 1
-#format-discharging = "<ramp-capacity> <label-discharging>"
-format-discharging = "<ramp-capacity>"
+format-discharging = "<ramp-capacity> <label-discharging>"
 format-discharging-padding = 1
 
 label-full = 󰂏
@@ -190,8 +189,9 @@ type = internal/alsa
 
 label-volume-foreground = ${colors.fc}
 label-muted-foreground = ${colors.fc}
-#format-volume = <label-volume><bar-volume>
-format-volume = <ramp-volume>
+#format-volume = <label-volume> <bar-volume>
+format-volume = <bar-volume>
+#format-volume = <ramp-volume>
 format-muted = <label-muted>
 
 format-volume-padding = 1
@@ -204,26 +204,21 @@ ramp-volume-2 = 󰕾
 
 label-muted = 󰖁
 
-bar-volume-width = 13
+bar-volume-width = 16
 bar-volume-foreground-0 = ${colors.green}
 bar-volume-foreground-1 = ${colors.green}
 bar-volume-foreground-2 = ${colors.green}
 bar-volume-foreground-3 = ${colors.green}
-bar-volume-foreground-4 = ${colors.yellow}
-bar-volume-foreground-5 = ${colors.red}
+bar-volume-foreground-4 = ${colors.green}
+bar-volume-foreground-5 = ${colors.yellow}
+bar-volume-foreground-6 = ${colors.red}
 
 bar-volume-gradient = true
 bar-volume-indicator =
-bar-volume-fill = ">"
-bar-volume-fill-font = 3
-bar-volume-empty = ">"
-bar-volume-empty-font = 3
-
-[module/mic]
-type = custom/script
-interval = 10
-label = "[ %output% ]"
-exec = TEMP=$(pacmd list-sources | grep -e 'index:' -e 'muted:' | tail -1); if [[ $TEMP =~ "yes" ]]; then echo "󰍭"; elif [[ $TEMP =~ "no" ]]; then echo "󰍬"; fi
+#bar-volume-fill = "󱑽"
+#bar-volume-empty = "󱑽"
+bar-volume-fill = "="
+bar-volume-empty = "="
 
 [module/currenttime]
 type = custom/script
@@ -231,22 +226,7 @@ interval = 0.5
 label-foreground = ${colors.fc}
 label =  %output%
 label-padding=1
-exec = date +%a,\ %b\ %d\ %k:%M:%S
-
-[module/GPU]
-type = custom/script
-interval = 10
-label-foreground = ${colors.fc}
-label = "%output%"
-exec = TEMP=$(lspci | grep VGA | wc -l); if [ $TEMP -eq 1 ]; then echo "iGPU"; elif [ $TEMP -eq 2 ]; then echo "dGPU/iGPU"; fi
-
-[module/policy]
-type = custom/script
-interval = 10
-label = "%output%"
-label-foreground = ${colors.fc}
-label-padding=1
-exec = TEMP=$(cat /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy); if [ $TEMP -eq 0 ]; then echo "󱑷"; elif [ $TEMP -eq 1 ]; then echo "󰈸"; elif [ $TEMP -eq 2 ]; then echo "󰌪";fi
+exec = date +%a,\ %B\ %d\ \ %k:%M:%S
 
 [module/fanspeed]
 type = custom/script
@@ -259,14 +239,10 @@ exec = cat /sys/devices/platform/asus-nb-wmi/hwmon/hwmon6/fan1_input
 [module/cputemp]
 type = custom/script
 interval = 10
-label =  "󰔏 %output%°C ]"
+label-foreground = ${colors.fc}
+label-padding=1
+label =  "󰔏 %output%°C"
 exec = TEMP=$(cat /sys/devices/virtual/thermal/thermal_zone0/temp); expr $TEMP / 1000
-
-[module/spacer]
-type = custom/script
-interval = 1000
-exec = echo " "
-format-padding = 2
 
 [module/powermenu]
 type = custom/menu
