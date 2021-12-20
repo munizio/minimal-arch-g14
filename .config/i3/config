@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $wallpaper ~/Downloads/Wallpapers/ofas72yn1kt01.jpg
+set $wallpaper ~/wallpaper.jpg
 
 set $mod Mod4
 
@@ -22,19 +22,12 @@ set $menu rofi -show drun -theme launcher
 #set $term kitty
 set $term $HOME/.config/i3/i3_shell.sh
 
-# Hardware Statup Commands
-# exec_always --no-startup-id nvidia-settings -a "[gpu:0]/GpuPowerMizerMode=0"
-
 # UI/UX Commands
 exec_always --no-startup-id xmodmap ~/.config/.Xmodmap
 exec_always --no-startup-id feh --bg-fill $wallpaper
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id picom --config ~/.config/picom.conf
 exec_always --no-startup-id light-locker
-#exec_always --no-startup-id pacmd set-source-volume 2 13000
-#exec_always --no-startup-id pacmd set-source-mute 2 1
-#pacmd set-source-volume 1 9619
-#pacmd set-source-volume 2 32768
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -72,9 +65,6 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 # Use light to adjust keyboard brightness.
 bindsym XF86KbdBrightnessDown exec --no-startup-id light -s sysfs/leds/asus::kbd_backlight -U 50
 bindsym XF86KbdBrightnessUp exec --no-startup-id light -s sysfs/leds/asus::kbd_backlight -A 50
-
-# Fan Mode Fix
-bindsym XF86Launch4 exec --no-startup-id asusctl profile -n
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
